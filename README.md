@@ -1,13 +1,13 @@
 # LLM Help Desk
 
-![Licencia](https://img.shields.io/badge/Licencia-MIT-2EA043?style=for-the-badge&logo=openinitiative&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16_+_pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-Qwen_2.5_3B-1B1B1B?style=for-the-badge&logo=ollama&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker_Compose-stack-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-%232EA043.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=%230D1117)
+![Python](https://img.shields.io/badge/Python-3.12-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white&labelColor=%230D1117)
+![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-%23009688.svg?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=%230D1117)
+![React](https://img.shields.io/badge/React-18-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=%230D1117)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white&labelColor=%230D1117)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16_+_pgvector-%234169E1.svg?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=%230D1117)
+![Ollama](https://img.shields.io/badge/Ollama-Qwen_2.5_3B-%23000000.svg?style=for-the-badge&logo=ollama&logoColor=white&labelColor=%230D1117)
+![Docker](https://img.shields.io/badge/Docker_Compose-stack-%232496ED.svg?style=for-the-badge&logo=docker&logoColor=white&labelColor=%230D1117)
 
 Plataforma de help desk de TI con **triage y primera respuesta automatizados por un agente IA 100% local** (Qwen vía Ollama). Sin datos que salgan de tu máquina, con validación determinista de salidas del LLM (cero alucinaciones por diseño) y con human-in-the-loop: el agente IA sugiere, un humano decide.
 
