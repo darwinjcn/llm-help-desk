@@ -1,13 +1,13 @@
 # LLM Help Desk
 
-![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-REST-009688?logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16_%2B_pgvector-4169E1?logo=postgresql&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-Qwen_2.5_3B-black?logo=ollama&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker_Compose-stack-2496ED?logo=docker&logoColor=white)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-2EA043?style=for-the-badge&logo=openinitiative&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16_+_pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-Qwen_2.5_3B-1B1B1B?style=for-the-badge&logo=ollama&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker_Compose-stack-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 Plataforma de help desk de TI con **triage y primera respuesta automatizados por un agente IA 100% local** (Qwen vía Ollama). Sin datos que salgan de tu máquina, con validación determinista de salidas del LLM (cero alucinaciones por diseño) y con human-in-the-loop: el agente IA sugiere, un humano decide.
 
