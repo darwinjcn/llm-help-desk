@@ -1,11 +1,6 @@
 # LLM Help Desk
 
 ![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)
-![Recall@3](https://img.shields.io/badge/recall%403-1.0-brightgreen)
-![JSON válido](https://img.shields.io/badge/JSON_valido-100%25-brightgreen)
-![Auditoría](https://img.shields.io/badge/agent_runs-auditable-blueviolet)
-![Human-in-the-loop](https://img.shields.io/badge/human_in_the_loop-siempre-orange)
-
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-REST-009688?logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
