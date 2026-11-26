@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: helpdesk-postgres
+    environment:
+      POSTGRES_USER: helpdesk
+      POSTGRES_PASSWORD: helpdesk
+      POSTGRES_DB: helpdesk
+    ports:
+      - "5433:5432"   # 5433 en el host: el 5432 lo usa tu PostgreSQL local
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helpdesk"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: helpdesk-backend
+    env_file: .env
+    environment:
+      # Dentro de la red de compose el host es el nombre del servicio
+      DATABASE_URL: postgresql+psycopg://helpdesk:helpdesk@postgres:5432/helpdesk
+      # Ollama nativo de Windows (corre en el host)
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+    ports:
+      - "8001:8000"   # 8001 en el host: el 8000 lo usa tu otro proyecto.
+                      # Interno sigue siendo 8000 (backend <-> frontend no cambian)
+    volumes:
+      # El reporte de evals se escribe en el contenedor; con este volumen
+      # queda visible y persistente en tu carpeta local backend/reports/
+      - ./backend/reports:/app/app/evals/reports
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    container_name: helpdesk-frontend
+    environment:
+      # El proxy de Vite dentro del contenedor debe apuntar al backend
+      # por la red de Docker, NO a localhost (bug de login corregido)
+      BACKEND_TARGET: http://backend:8000
+    ports:
+      - "5174:5173"   # 5174 en el host: el 5173 lo usa tu otro proyecto.
+                      # Interno sigue siendo 5173 (no afecta al proxy de Vite)
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Variables de entorno
+.env
+
+# Frontend
+node_modules/
+dist/
+.vite/
+
+# Logs y artefactos generados
+*.log
+app/evals/reports/latest.json
+backend/reports/*.json
+
+# Sistema
+.DS_Store
+Thumbs.db
