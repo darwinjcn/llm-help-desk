@@ -1,22 +1,42 @@
-# LLM Help Desk
+<h1 align="center">LLM Help Desk</h1>
 
-![Licencia](https://img.shields.io/badge/Licencia-MIT-%232EA043.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=%230D1117)
-![Python](https://img.shields.io/badge/Python-3.12-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white&labelColor=%230D1117)
-![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-%23009688.svg?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=%230D1117)
-![React](https://img.shields.io/badge/React-18-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=%230D1117)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white&labelColor=%230D1117)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16_+_pgvector-%234169E1.svg?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=%230D1117)
-![Ollama](https://img.shields.io/badge/Ollama-Qwen_2.5_3B-%23000000.svg?style=for-the-badge&logo=ollama&logoColor=white&labelColor=%230D1117)
-![Docker](https://img.shields.io/badge/Docker_Compose-stack-%232496ED.svg?style=for-the-badge&logo=docker&logoColor=white&labelColor=%230D1117)
+<p align="center">
+  <img alt="Licencia MIT" src="https://img.shields.io/badge/Licencia-MIT-2EA043?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0D1117">
+  <img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=0D1117">
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-REST_API-009688?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=0D1117">
+</p>
+<p align="center">
+  <img alt="React 18" src="https://img.shields.io/badge/React-18-087EA4?style=for-the-badge&logo=react&logoColor=61DAFB&labelColor=0D1117">
+  <img alt="TypeScript 5" src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white&labelColor=0D1117">
+  <img alt="PostgreSQL 16 + pgvector" src="https://img.shields.io/badge/PostgreSQL-16_%2B_pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=0D1117">
+</p>
+<p align="center">
+  <img alt="Ollama Qwen 2.5 3B" src="https://img.shields.io/badge/Ollama-Qwen_2.5_3B-6E40C9?style=for-the-badge&logo=ollama&logoColor=white&labelColor=0D1117">
+  <img alt="Docker Compose" src="https://img.shields.io/badge/Docker_Compose-stack-2496ED?style=for-the-badge&logo=docker&logoColor=white&labelColor=0D1117">
+</p>
 
-Plataforma de help desk de TI con **triage y primera respuesta automatizados por un agente IA 100% local** (Qwen vía Ollama). Sin datos que salgan de tu máquina, con validación determinista de salidas del LLM (cero alucinaciones por diseño) y con human-in-the-loop: el agente IA sugiere, un humano decide.
+<p align="center">
+  Plataforma de help desk de TI con <strong>triage y primera respuesta automatizados por un agente IA 100% local</strong> (Qwen vía Ollama).<br>
+  Sin datos que salgan de tu máquina, con validación determinista de salidas del LLM y human-in-the-loop: el agente IA sugiere, un humano decide.
+</p>
+
+<p align="center">
+  <a href="#qué-lo-diferencia">Diferenciadores</a> ·
+  <a href="#capturas">Capturas</a> ·
+  <a href="#arquitectura">Arquitectura</a> ·
+  <a href="#quickstart">Quickstart</a> ·
+  <a href="#eval-del-agente--resultados-medidos">Evals</a> ·
+  <a href="#roadmap-explícitamente-fuera-de-la-v1">Roadmap</a>
+</p>
+
+---
 
 ## Qué lo diferencia
 
 - **El LLM decide, el código determinista ejecuta**: el modelo solo devuelve JSON validado con Pydantic; si falla, el ticket cae en cola manual (fallback graceful).
 - **Reglas de negocio sobre el modelo**: si el texto indica caída total / facturación / producción, la prioridad se fuerza a `critica` sin importar lo que diga el LLM.
 - **Anti-alucinación en código**: la sugerencia del agente cita fuentes `[KB-XXX]`; si el modelo inventa una fuente que no estaba en el contexto recuperado, la sugerencia se rechaza.
-- **Guardias contra modos de fallo de modelos 3B**: `repeat_penalty`, límite de tokens y un detector determinista de salidas repetitivas (`textguard.py`) — si el modelo entra en bucle, la salida se rechaza y se reintenta; el intento queda auditado.
+- **Guardias contra modos de fallo de modelos 3B**: `repeat_penalty`, límite de tokens y un detector determinista de salidas repetitivas (`textguard.py`). Si el modelo entra en bucle, la salida se rechaza y se reintenta; el intento queda auditado.
 - **Todo auditable y medible**: cada decisión del agente queda en `agent_runs` (modelo, prompt, latencia, tokens, aceptación humana) y la suite de evals genera reportes reproducibles.
 - **Elección del modelo con datos**: el script de benchmark compara modelos de Qwen sobre el dataset dorado, en tu máquina.
 
@@ -98,8 +118,8 @@ make seed
 make health        # debe responder {"estado":"ok", ...}
 ```
 
-- Frontend: http://localhost:5174  (el compose publica el 5174 en el host para no chocar con el 5173)
-- API docs (Swagger): http://localhost:8001/docs  (el backend publica el 8001 en el host para no chocar con el 8000)
+- Frontend: http://localhost:5174 (el compose publica el 5174 en el host para no chocar con el 5173)
+- API docs (Swagger): http://localhost:8001/docs (el backend publica el 8001 en el host para no chocar con el 8000)
 
 Usuarios de prueba (creados por el seed):
 
@@ -172,7 +192,7 @@ llm-help-desk/
 
 - **FastAPI en vez de Streamlit**: el producto es multi-usuario con RBAC y una máquina de estados de ticket; Streamlit no escala a eso.
 - **Sin CrewAI / LangGraph en v1**: la orquestación es una secuencia de dos pasos con validación y auditoría; hacerlo a mano es más simple, más rápido y demuestra criterio sobre cuándo NO usar un framework.
-- **pgvector en vez de ChromaDB**: un solo servicio de BD menos en el stack y misma capacidad para el tamaño de KB de este proyecto.
+- **pgvector en vez de ChromaDB**: un servicio de BD menos en el stack y misma capacidad para el tamaño de KB de este proyecto.
 - **Qwen 2.5 3B cuantizado (q4_K_M)**: equilibrio entre calidad de JSON estructurado y latencia en CPU (~8-12 tok/s); presupuesto total del stack < 6 GB de RAM.
 - **Human-in-the-loop obligatorio**: el agente nunca cierra tickets ni aplica estados por sí solo; las acciones de cierre son siempre humanas.
 
@@ -203,7 +223,7 @@ v2 (corte natural en servicios)
                     Ollama (escala aparte)
 ```
 
-Por qué **no** separar en v1: con tráfico de demo y CPU-only, tres contenedores extra son costo operativo sin beneficio, y una sola BD relational ya garantiza la consistencia entre tickets y `agent_runs`. El `ai-gateway` es el primer candidato a extraerse (la inferencia es lo único que escala distinto al CRUD); defender cuándo NO microservificar es parte del criterio arquitectónico del proyecto.
+Por qué **no** separar en v1: con tráfico de demo y CPU-only, tres contenedores extra son costo operativo sin beneficio, y una sola BD relacional ya garantiza la consistencia entre tickets y `agent_runs`. El `ai-gateway` es el primer candidato a extraerse (la inferencia es lo único que escala distinto al CRUD); defender cuándo NO microservificar es parte del criterio arquitectónico del proyecto.
 
 ## Roadmap (explícitamente fuera de la v1)
 
@@ -213,10 +233,6 @@ Por qué **no** separar en v1: con tráfico de demo y CPU-only, tres contenedore
 - Ingesta de KB desde archivos (PDF/Markdown) y email
 - Memoria conversacional multi-turno en el agente de resolución
 - Fine-tuning del modelo de triage con los tickets reales aceptados
-
-## Licencia
-
-[MIT](LICENSE) — puedes usar, modificar y redistribuir el código con atribución. Los modelos de Qwen tienen su propia licencia (Apache 2.0 en las versiones 2.5 usadas aquí).
 
 ## API (resumen)
 
@@ -229,3 +245,7 @@ POST /api/tickets/{id}/sugerencia/regenerar      # reconsulta IA con los comenta
 GET/POST /api/kb/articles                        POST /api/kb/articles/{id}/reingesta
 GET  /api/agent/runs                             POST /api/evals/run  ·  GET /api/evals/report
 ```
+
+## Licencia
+
+[MIT](LICENSE) — puedes usar, modificar y redistribuir el código con atribución. Los modelos de Qwen tienen su propia licencia (Apache 2.0 en las versiones 2.5 usadas aquí).
