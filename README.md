@@ -1,6 +1,18 @@
 # LLM Help Desk
 
 ![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)
+![Recall@3](https://img.shields.io/badge/recall%403-1.0-brightgreen)
+![JSON válido](https://img.shields.io/badge/JSON_valido-100%25-brightgreen)
+![Auditoría](https://img.shields.io/badge/agent_runs-auditable-blueviolet)
+![Human-in-the-loop](https://img.shields.io/badge/human_in_the_loop-siempre-orange)
+
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-REST-009688?logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16_%2B_pgvector-4169E1?logo=postgresql&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-Qwen_2.5_3B-black?logo=ollama&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker_Compose-stack-2496ED?logo=docker&logoColor=white)
 
 Plataforma de help desk de TI con **triage y primera respuesta automatizados por un agente IA 100% local** (Qwen vía Ollama). Sin datos que salgan de tu máquina, con validación determinista de salidas del LLM (cero alucinaciones por diseño) y con human-in-the-loop: el agente IA sugiere, un humano decide.
 

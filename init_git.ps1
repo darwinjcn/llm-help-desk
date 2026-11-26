@@ -17,10 +17,15 @@ try { git --version | Out-Null } catch {
 if (-not (git config user.name)) { git config --global user.name "Tu Nombre" }
 if (-not (git config user.email)) { git config --global user.email "tu-email@example.com" }
 
-# 3. Inicializar y primer commit
+# 3. Inicializar y primer commit (asunto + cuerpo, cada -m es un parrafo)
 if (-not (Test-Path ".git")) { git init }
 git add .
-git commit -m "Help desk con agentes IA locales (Qwen/Ollama), RAG por categoria y evals medibles (recall@3 0.75 -> 1.0)"
+git commit `
+    -m "Help desk con agentes IA locales: RAG, human-in-the-loop y evals medibles" `
+    -m "Backend FastAPI con RBAC (cliente/agente/admin), JWT y auditoria completa en agent_runs." `
+    -m "Triage y resolucion con Qwen 2.5 3B via Ollama en el host: salidas JSON validadas con Pydantic, reglas de negocio deterministas sobre el modelo, anti-alucinacion por citas [KB-XXX] y textguard contra bucles." `
+    -m "RAG con pgvector filtrado por la categoria del triage: recall@3 medido de 0.75 a 1.0 con la suite de evals reproducible (make evals)." `
+    -m "Frontend React/TypeScript (tickets, base de conocimiento, dashboard IA) y stack en Docker Compose con Ollama nativo en host (<6 GB RAM)."
 
 # 4. Push si dieron la URL
 if ($RepoUrl -ne "") {
